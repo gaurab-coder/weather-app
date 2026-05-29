@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App | gaurabkhadka82.com.np</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="sun"></div>
+    </div>
+
+    <div class="container">
+        <div class="weather-card glass">
+            <div class="card-header">
+                <div class="logo">
+                    <span class="weather-icon">🌤️</span>
+                    <h1>WeatherPro</h1>
+                </div>
+                <p class="subtitle">Real-time weather forecast</p>
+            </div>
+            
+            <div class="search-section">
+                <div class="search-box-wrapper">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" id="cityInput" class="search-input" placeholder="Search city..." spellcheck="false" autocomplete="off">
+                    <button id="searchBtn" class="search-btn">
+                        <span class="btn-text">Search</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="loading" class="loading-container hidden">
+                <div class="spinner"></div>
+                <p>Analyzing weather data...</p>
+            </div>
+            
+            <div id="error" class="error-container hidden">
+                <div class="error-icon">⚠️</div>
+                <p>City not found</p>
+                <small>Please check the spelling and try again</small>
+            </div>
+
+            <div id="weatherInfo" class="weather-info hidden">
+                <div class="main-weather">
+                    <div class="location-section">
+                        <div class="location-icon">📍</div>
+                        <h2 id="cityName">Kathmandu, Nepal</h2>
+                        <p id="currentTime" class="current-time">--:--</p>
+                    </div>
+                    
+                    <div class="temperature-section">
+                        <img id="weatherIcon" src="" alt="Weather icon" class="weather-icon-large">
+                        <div class="temp-wrapper">
+                            <span class="temp-value" id="temperature">--</span>
+                            <span class="temp-unit">°</span>
+                        </div>
+                        <div class="feels-like">
+                            <span>Feels like</span>
+                            <strong id="feelsLike">--°C</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-badge" id="condition">
+                        <span class="condition-icon">☀️</span>
+                        <span class="condition-text">Clear Sky</span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <div class="detail-icon">💧</div>
+                        <div class="detail-content">
+                            <span class="detail-label">Humidity</span>
+                            <strong id="humidity">--%</strong>
+                            <span class="detail-description">Dew point: --°C</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon">💨</div>
+                        <div class="detail-content">
+                            <span class="detail-label">Wind Speed</span>
+                            <strong id="windSpeed">-- km/h</strong>
+                            <span class="detail-description">Direction: --</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon">🌡️</div>
+                        <div class="detail-content">
+                            <span class="detail-label">High / Low</span>
+                            <strong id="tempRange">--°C / --°C</strong>
+                            <span class="detail-description">Today's range</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon">👁️</div>
+                        <div class="detail-content">
+                            <span class="detail-label">Visibility</span>
+                            <strong id="visibility">-- km</strong>
+                            <span class="detail-description">Clear view</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon">🔽</div>
+                        <div class="detail-content">
+                            <span class="detail-label">Pressure</span>
+                            <strong id="pressure">-- hPa</strong>
+                            <span class="detail-description">Sea level</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon">☁️</div>
+                        <div class="detail-content">
+                            <span class="detail-label">Cloud Cover</span>
+                            <strong id="clouds">--%</strong>
+                            <span class="detail-description">Sky condition</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forecast-section">
+                    <h3>Hourly Forecast</h3>
+                    <div class="hourly-scroll" id="hourlyForecast">
+                        <div class="hourly-item">
+                            <span class="hour-time">Now</span>
+                            <span class="hour-icon">🌤️</span>
+                            <span class="hour-temp">--°C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="card-footer">
+                <p>Powered by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap API</a></p>
+                <p class="credits">Designed by Gaurab Khadka</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
